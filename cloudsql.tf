@@ -14,7 +14,6 @@ resource "google_sql_database_instance" "spotmusic-database-instance" {
 
     ip_configuration {
       ipv4_enabled    = true
-      authorized_networks = ["0.0.0.0/0"]
     }
   }
 }
@@ -33,7 +32,7 @@ resource "google_sql_user" "database_user" {
   instance = google_sql_database_instance.spotmusic-database.name
   password = "abc12345678#*"
 
-  depends_on = [ google_sql_database_instance.spotmusic-database ]
+  depends_on = [ google_sql_database_instance.spotmusic-database-instance ]
 }
 
 resource "null_resource" "example" {
