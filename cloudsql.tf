@@ -35,11 +35,3 @@ resource "google_sql_user" "database_user" {
 
   depends_on = [ google_sql_database_instance.spotmusic-database-instance ]
 }
-
-resource "null_resource" "example" {
-  provisioner "local-exec" {
-    command = "cat playlist.sql | gcloud sql connect ${google_sql_database_instance.spotmusic-database-instance.connection_name} --user=playlist --password=abc12345678#*"
-  }
-
-  depends_on = [google_sql_database.spotmusic-database, google_sql_user.database_user]
-}
