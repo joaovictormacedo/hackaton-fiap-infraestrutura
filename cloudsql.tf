@@ -1,6 +1,7 @@
 resource "google_sql_database_instance" "spotmusic-database-instance" {
   name             = "spotmusic"
   database_version = "MYSQL_5_7"
+  region           = var.region
   project          = var.project_name
 
   settings {
