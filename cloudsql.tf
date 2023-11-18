@@ -29,7 +29,7 @@ resource "google_sql_database" "spotmusic-database" {
 
 resource "google_sql_user" "database_user" {
   name     = "playlist"
-  instance = google_sql_database_instance.spotmusic-database.name
+  instance = google_sql_database_instance.spotmusic-database-instance.name
   password = "abc12345678#*"
 
   depends_on = [ google_sql_database_instance.spotmusic-database-instance ]
